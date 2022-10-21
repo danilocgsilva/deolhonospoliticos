@@ -6,6 +6,7 @@ services:
       context: ./docker
     ports:
       - 80:80
+    working_dir: /var/www
     volumes:
-      - ./app:/var/www
+      - ./file_envs:/var/www
     container_name: deolhonospoliticos
