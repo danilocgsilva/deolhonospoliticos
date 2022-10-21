@@ -1,7 +1,5 @@
-FROM debian:stable-20220912-slim
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install apache2 curl git zip -y 
+FROM deolhonospoliticosbase
+RUN apt-get install apache2 curl git zip -y 
 COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN apt-get install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list

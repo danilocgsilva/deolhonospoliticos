@@ -3,10 +3,16 @@ version: '3.5'
 services:
   webserver:
     build:
-      context: ./docker
+      context: ./docker/env
     ports:
       - 80:80
     working_dir: /var/www
     volumes:
       - ./file_envs:/var/www
     container_name: deolhonospoliticos
+  db:
+    build:
+      context: ./docker/db
+    ports:
+      - 3306:3306
+    container_name: deolhonospoliticos_db
