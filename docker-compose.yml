@@ -10,6 +10,8 @@ services:
     volumes:
       - ./file_envs:/var/www
     container_name: deolhonospoliticos
+    links:
+      - db
   db:
     build:
       context: ./docker/db
