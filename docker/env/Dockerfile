@@ -1,6 +1,8 @@
 FROM deolhonospoliticosbase
 RUN apt-get install apache2 curl git zip -y 
 COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./apache2.conf /etc/apache2/apache2.conf
+RUN a2enmod rewrite
 RUN apt-get install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
 RUN curl -fsSL  https://packages.sury.org/php/apt.gpg| gpg --dearmor -o /etc/apt/trusted.gpg.d/sury-keyring.gpg
