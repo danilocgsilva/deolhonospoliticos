@@ -18,3 +18,7 @@ services:
     ports:
       - 3306:3306
     container_name: deolhonospoliticos_db
+    environment:
+      MYSQL_ROOT_PASSWORD: deolho
+      MYSQL_USER: deolho
+      MYSQL_PASSWORD: deolho
