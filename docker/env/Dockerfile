@@ -8,7 +8,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc
 RUN curl -fsSL  https://packages.sury.org/php/apt.gpg| gpg --dearmor -o /etc/apt/trusted.gpg.d/sury-keyring.gpg
 RUN apt-get update
 RUN apt-get install php8.1 -y
-RUN apt-get install php8.1-dom php8.1-zip php8.1-curl -y
+RUN apt-get install php8.1-dom php8.1-zip php8.1-curl php8.1-mysql -y
 ENV NODE_VERSION=16.17.1
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ENV NVM_DIR=/root/.nvm
