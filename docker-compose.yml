@@ -22,3 +22,9 @@ services:
       MYSQL_USER: deolho
       MYSQL_PASSWORD: deolho
       MYSQL_DATABASE: deolho
+  frontend:
+    build:
+      context: ./docker/frontend
+    container_name: deolhonospoliticos_frontend
+    volumes:
+      - ./file_envs:/var/www
