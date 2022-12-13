@@ -14,6 +14,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ 
 EXPOSE 80
 WORKDIR /var/www
 CMD \
+    chmod -R 777 storage && \
     composer install && \
     cp .env.example .env && \
     php artisan key:generate && \
