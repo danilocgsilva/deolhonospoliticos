@@ -12,7 +12,9 @@ RUN apt-get install php8.1 -y
 RUN apt-get install php8.1-dom php8.1-zip php8.1-curl php8.1-mysql -y
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 EXPOSE 80
+WORKDIR /var/www
 CMD \
     composer install && \
     cp .env.example .env && \
+    php artisan key:generate && \
     apachectl -D FOREGROUND
