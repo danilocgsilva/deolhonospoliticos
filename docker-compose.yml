@@ -28,3 +28,22 @@ services:
     container_name: deolhonospoliticos_frontend
     volumes:
       - ./file_envs:/var/www
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: deolhonospoliticos_phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: deolho
+      PMA_PASSWORD: deolho
+      MYSQL_ROOT_PASSWORD: deolho
+      MYSQL_USER: deolho
+      MYSQL_PASSWORD: deolho
+      UPLOAD_LIMIT: 512M
+      MEMORY_LIMIT: 512M
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
